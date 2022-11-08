@@ -1,72 +1,16 @@
 
 import random
+from words import word_list
+import arts
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
 
-wordList = ['zebra','baboon','giraffe','lion']
-
-# todo 1 
+wordList = word_list
 chosenWord = random.choice(wordList)
 print(chosenWord)
 
-# todo 2 
- 
-# to do 4 
+stages = arts.stages 
+logo = arts.logo
+
 display = []
 for a in chosenWord:
   display += '_' 
