@@ -13,6 +13,7 @@ def isLeap(year):
     
 
 def daysInMonth(year,month):
+  """Take the year and month and return the number of days in that month for that year considering the leap year"""
   monthDays = [31,28,31,30,31,30,31,31,30,31,30,31] 
   if isLeap(year):
     monthDays[1] = 29
