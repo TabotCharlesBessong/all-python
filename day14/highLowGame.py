@@ -1,48 +1,63 @@
-
+# import 
 import random
+from art import logo , vs
+from data import data
 
-celebrity = [
-  {
-    "name":"Rihana",
-    "followers":340
-  },
-  {
-    "name":"Eto'o",
-    "followers":230
-  },
-  {
-    "name":"Messi",
-    "followers":560
-  },
-  {
-    "name":"Ronaldo",
-    "followers":830
-  },
-  {
-    "name":"Beyonce",
-    "followers":190
-  },
-  {
-    "name":"Neymar",
-    "followers":390
-  },
-]
+ 
+# display art
+print(logo)
 
-a = random.choice(celebrity)
-b = random.choice(celebrity)
-if a == b :
-  b = random.choice(celebrity)
-  
-nameA = a["name"]
-nameB = b["name"]    
-print(nameA,nameB) 
-guess = input(f"Who do you think has more instagram followers {nameA} or {nameB}\nTake a for {nameA} and b for {nameB}:  ")
+# generate a random account
+def generateRandom():
+  return random.choice(data)
 
-def compare(a,b):
-  if a["followers"] > b["followers"]:
-    print( f"{nameA} has more instagram followers than {nameB}"  ) 
-  elif a["followers"] < b["followers"]:
-    print( f"{nameB} has more instagram followers than {nameA}"  )
+accountA = generateRandom()
+print(f"{accountA['name']} is a {accountA['description']} from the {accountA['country']} ")
+print(vs)
+
+accountB = generateRandom()
+# if accountA == accountB:
+  # accountB = generateRandom()
+print(f"{accountB['name']} is a {accountB['description']} from the {accountB['country']} ")
+
+# have user guess the correct answer
+guess = input("Do you want to choose A for the first account or B for the second: ").lower()
+
+# Check the user answer 
+def checkAnswer(guess,account1,account2):
+  if guess == 'a':
+    if account1['follower_count'] > account2['follower_count']:
+      return True
+    else:
+      return False
   else:
-    print("There are equal")
-compare(a,b)   
+    if account1['follower_count'] > account2['follower_count']:
+      return False
+    else:
+      return True
+      
+checkAnswer(guess,accountA,accountB)  
+
+# Give user feedback about their guess   
+def score():
+  score = 0
+  if checkAnswer(guess,accountA,accountB):
+    score +=1
+    print(f"Correct your score is {score} points ")
+    return score
+  else:
+    print("You lost the game")
+    return score
+
+score()  
+
+def playAgain():
+  again = input("Would you like to play again\n Yes : y or no:n").lower()
+  if again == "y":
+    checkAnswer(guess,accountA,accountB)
+    score()
+  else:
+    print('Thank you for playing') 
+    score() 
+    
+playAgain()    
