@@ -23,7 +23,15 @@ class QuizBrain:
   def nextQuestion(self):
     currentQuestion = self.list[self.questionNumber]
     self.questionNumber += 1
-    input(f"Q.{self.questionNumber} : {currentQuestion.text} (True/False) ")
+    userAnswer = input(f"Q.{self.questionNumber} : {currentQuestion.text} (True/False) ")
+    self.checkAnswer(userAnswer,currentQuestion.answer)
     
-  def checkAnswer(self):
-    pass
+  def checkAnswer(self , userAnswer , correctAnswer):
+    if userAnswer.lower() == correctAnswer.lower():
+      print('You got it right!')
+      self.score += 1
+    else:
+      print('You got it wrong') 
+    print(f"Answer is : {correctAnswer} ")  
+    print(f"Your current score is : {self.score}/{self.questionNumber} ")
+    # print("/day1/input.py")
