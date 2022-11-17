@@ -12,8 +12,9 @@ class Ball(Turtle):
     self.shape("circle")
     self.penup()
     # self.move()
-    self.xMove = 10
-    self.yMove = 15
+    self.xMove = 8
+    self.yMove = 10
+    self.moveSpeed = 0.1
     
   def move(self):
     # ranD = random.randint(0,len(DIRECTIONS))
@@ -27,6 +28,7 @@ class Ball(Turtle):
   
   def bounceX(self):
     self.xMove *= -1
+    self.moveSpeed *= 0.95
     
   # def gameOver(self):
   #   self.goto(0,0)
@@ -35,3 +37,5 @@ class Ball(Turtle):
     self.goto(0,0)
     time.sleep(0.6)
     self.bounceX()
+    self.moveSpeed(0.1)
+    
