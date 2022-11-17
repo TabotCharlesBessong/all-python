@@ -1,5 +1,6 @@
 
 import random
+import time
 from turtle import Turtle
 
 # DIRECTIONS = [(20,20),(-20,20),(-20,-20),(20,-20)]
@@ -27,6 +28,10 @@ class Ball(Turtle):
   def bounceX(self):
     self.xMove *= -1
     
-  def gameOver(self):
+  # def gameOver(self):
+  #   self.goto(0,0)
+  #   self.write("GAME OVER ",align="center",font=("Arial",32,"bold"))
+  def resetBall(self):
     self.goto(0,0)
-    self.write("GAME OVER ",align="center",font=("Arial",32,"bold"))
+    time.sleep(0.6)
+    self.bounceX()
