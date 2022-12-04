@@ -21,6 +21,8 @@ def guessGame():
     limit = hardLimit
   else:
     print('Please chose again , you chose the wrong level.')
+    #getting another guess from the user after they gave a wrong choice of level
+    level = input("You can choose easy game , medium game , hard game\n Type easy for easy game , medium for medium game ,hard for hard game: \n").lower()
   
   while limit != 0 :
     userGuess = int(input(f"You have {limit} attempts remaining to guess the number: ")) 
