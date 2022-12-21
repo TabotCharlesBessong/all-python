@@ -13,13 +13,17 @@ def calculate_score(cards):
   if sum(cards) == 21 and len(cards) == 2:
     return 0
   if 11 in cards and sum(cards) > 21:
+    #  as per the rule of black jack , we have to change the 11 with 1 if the sum of the cards is above 21      
     cards.remove(11)
     cards.append(1)
   return sum(cards)
 
 def compare(user_score, computer_score):
+  """Takes the computer score and that of the user to check who the winner is"""
   if user_score > 21 and computer_score > 21:
     return "You went over. You lose 😤"
+  
+#   There is rather an if statement after this if stament and not an elif or else because the conditions are not directly linked and this condition need to be checked first to avoid breaking the code
 
 
   if user_score == computer_score:
@@ -46,6 +50,7 @@ def play_game():
   is_game_over = False
 
   for _ in range(2):
+    # we first give them 2 2 cards each      
     user_cards.append(deal_card())
     computer_cards.append(deal_card())
 

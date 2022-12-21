@@ -5,6 +5,7 @@ import arts
 
 
 wordList = word_list
+# we choose a random word for the user to guess 
 chosenWord = random.choice(wordList)
 print(chosenWord)
 
@@ -16,6 +17,7 @@ for a in chosenWord:
   display += '_' 
 
 print(display) 
+print(logo)
 
 endOfGame = False
 life = len(stages)
@@ -23,6 +25,7 @@ while not endOfGame:
   guess = input("Enter a letter in the word: ") 
 
   for position in range(len(chosenWord)):
+    # displying dash lines for every letter in the word 
     letter = chosenWord[position]
     if letter == guess:
       display[position] = letter

@@ -1,3 +1,5 @@
+# This is the object that will model the financial 
+
 class MoneyMachine:
   
     CURRENCY = "$"
@@ -21,6 +23,7 @@ class MoneyMachine:
         """Returns the total calculated from coins inserted."""
         print("Please insert coins.")
         for coin in self.COIN_VALUES:
+#           we loop though all our coins and check rhe number of coins the customer wants multiplied by the value of the coin 
             self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
         return self.money_received
 
